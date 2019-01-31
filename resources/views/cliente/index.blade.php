@@ -16,11 +16,33 @@
 
                     You are logged in!
 
-                    @foreach($clientes as $cliente)
-                    <li>{{$cliente->nome}}</li>
-                    @endforeach
-
-                    <table class="table table-border">
+                    <p>
+                        <a class="btn btn-info" href="#">Adicionar</a>
+                    </p>
+                    <table class="table table-bordered">
+                       <thead> 
+                          <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Endereço</th>
+                            <th>Ação</th>
+                          </tr>  
+                       </thead> 
+                       <tbody>
+                       @foreach($clientes as $cliente)
+                       <tr>
+                            <th scope="row">{{$cliente->id}}</th>
+                            <td>{{$cliente->nome}}</td>
+                            <td>{{$cliente->email}}</td>
+                            <td>{{$cliente->endereco}}</td>
+                            <td>
+                                <a class="btn btn-default" href='#'>Editar</a>
+                                <a class="btn btn-default" href='#'>Deletar</a>
+                            </td>
+                        </tr>  
+                       @endforeach
+                       </tbody>
                     </table>
                     <div align="center">
                         {!! $clientes->links()  !!}
